@@ -16,8 +16,8 @@ render() {
     <div>
       <Header/>
       <Switch>
+        <Route exact path='/' render={()=><Home/>} />
         <Route exact path='/' render={()=><ArticleList articleList={this.props.masterArticleList}/>} />
-        <Route path='/newarticle' render={()=><NewArticleControl />} />
         <Route path='/admin' render={(props)=><Admin currentRouterPath={props.location.pathname} />} />
         <Route component={Error404}/>
       </Switch>
