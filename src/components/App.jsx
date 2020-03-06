@@ -17,7 +17,7 @@ render() {
       <Header/>
       <Switch>
         <Route exact path='/' render={()=><Home/>} />
-        <Route exact path='/' render={()=><ArticleList articleList={this.props.masterArticleList}/>} />
+        <Route path='/articlelist' render={()=><ArticleList articleList={this.props.masterArticleList}/>} />
         <Route path='/admin' render={(props)=><Admin currentRouterPath={props.location.pathname} />} />
         <Route component={Error404}/>
       </Switch>
@@ -43,3 +43,12 @@ export default withRouter(connect(mapStateToProps)(App));
 //  var masterArticleList
 // New NewArticleControl
 // Error404
+
+// need a home page
+// ArticleList page
+// users comment in articles page
+// NewArticles should be under Admin
+// need an About page
+// need a Contact page
+// Productions is a link to
+// admin page should have authentication
