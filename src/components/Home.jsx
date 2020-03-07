@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-function Home(props) {
+function Home() {
   return (
     <div>
       <h3>Home Page</h3>
@@ -10,3 +10,5 @@ function Home(props) {
     </div>
   );
 }
+
+export default connect()(Home);

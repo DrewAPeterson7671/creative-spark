@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import logo from '../logo.svg';
+import '../App.css';
 import { Switch, Route, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-
+import Header from './Header';
+import Home from './Home';
+import ArticleList from './ArticleList';
+import Error404 from './Error404';
 
 class App extends React.Component {
 
@@ -15,7 +18,6 @@ class App extends React.Component {
         <Switch>
           <Route exact path='/' render={()=><Home/>} />
           <Route path='/articlelist' render={()=><ArticleList articleList={this.props.masterArticleList}/>} />
-          <Route path='/admin' render={(props)=><Admin currentRouterPath={props.location.pathname} />} />
           <Route component={Error404}/>
         </Switch>
       </div>
@@ -23,7 +25,7 @@ class App extends React.Component {
     }
 }
 
-App.PropTypes = {
+App.propTypes = {
   masterArticleList: PropTypes.object
 }
 
@@ -49,3 +51,5 @@ export default withRouter(connect(mapStateToProps)(App));
 // need a Contact page
 // Productions is a link to
 // admin page should have authentication
+
+// <Route path='/admin' render={(props)=><Admin currentRouterPath={props.location.pathname} />} />

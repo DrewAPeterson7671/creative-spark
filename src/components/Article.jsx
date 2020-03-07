@@ -25,7 +25,7 @@ Article.propTypes = {
   author: PropTypes.string.isRequired,
   date: PropTypes.string,
   content: PropTypes.string.isRequired,
-  ticketId: PropTypes.string.isRequired
+  articleId: PropTypes.string.isRequired
 }
 
 export default connect()(Article);

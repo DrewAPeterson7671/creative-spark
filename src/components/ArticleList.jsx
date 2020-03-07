@@ -7,7 +7,7 @@ function ArticleList(props){
     <div>
       <hr/>
       {Object.keys(props.articleList).map(function(articleId) {
-        var article = props.articleList[ticketId];
+        var article = props.articleList[articleId];
         return <Article title={article.title}
         author={article.author}
         content={article.content}
@@ -21,7 +21,7 @@ function ArticleList(props){
 
 ArticleList.propTypes = {
   articleList: PropTypes.object,
-  currentRouterPath: Proptypes.string,
+  currentRouterPath: PropTypes.string,
 };
 
 export default ArticleList;
