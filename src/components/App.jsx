@@ -8,22 +8,19 @@ import PropTypes from 'prop-types';
 
 class App extends React.Component {
 
-
-}
-
-render() {
-  return (
-    <div>
-      <Header/>
-      <Switch>
-        <Route exact path='/' render={()=><Home/>} />
-        <Route path='/articlelist' render={()=><ArticleList articleList={this.props.masterArticleList}/>} />
-        <Route path='/admin' render={(props)=><Admin currentRouterPath={props.location.pathname} />} />
-        <Route component={Error404}/>
-      </Switch>
-    </div>
-    );
-  }
+  render() {
+    return (
+      <div>
+        <Header/>
+        <Switch>
+          <Route exact path='/' render={()=><Home/>} />
+          <Route path='/articlelist' render={()=><ArticleList articleList={this.props.masterArticleList}/>} />
+          <Route path='/admin' render={(props)=><Admin currentRouterPath={props.location.pathname} />} />
+          <Route component={Error404}/>
+        </Switch>
+      </div>
+      );
+    }
 }
 
 App.PropTypes = {
