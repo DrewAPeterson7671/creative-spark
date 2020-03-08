@@ -4,17 +4,12 @@ import { connect } from 'react-redux';
 
 function Article(props) {
 
-  const articleInformation =
+  return (
     <div>
       <h3>{props.title}</h3>
       <h4>{props.author}</h4>
       <h4>{props.date}</h4>
-      <p>{props.content}</p>
-      <hr/>
-    </div>
-  return (
-    <div>
-      {articleInformation}
+      <h5>{props.content}</h5>
     </div>
   );
 }
