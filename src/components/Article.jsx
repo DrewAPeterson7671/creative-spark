@@ -10,6 +10,7 @@ function Article(props) {
       <h4>{props.author}</h4>
       <h4>{props.date}</h4>
       <h5>{props.content}</h5>
+      <hr/>
     </div>
   );
 }

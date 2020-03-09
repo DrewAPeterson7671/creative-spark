@@ -5,7 +5,7 @@ import Article from './Article';
 function ArticleList(props){
   return (
     <div>
-
+      <hr/>
       {Object.keys(props.articleList).map(function(articleId) {
         var article = props.articleList[articleId];
         return <Article title={article.title}
