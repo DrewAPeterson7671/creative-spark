@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Article from './Article';
 
 function ArticleList(props){
+  console.log(props);
   return (
     <div>
       <hr/>
@@ -13,7 +14,8 @@ function ArticleList(props){
         content={article.content}
         date={article.date}
         key={articleId}
-        articleId={articleId}/>;
+        articleId={articleId}
+        currentRouterPath={props.currentRouterPath}/>;
       })}
     </div>
   );

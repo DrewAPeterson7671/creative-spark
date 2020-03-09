@@ -11,7 +11,10 @@ import Error404 from './Error404';
 import NewArticleForm from './NewArticleForm';
 import Admin from './Admin';
 
+
 class App extends React.Component {
+  // let currentRouterPath = props.location.pathname
+  // console.log(props.location.pathname)
 
   render() {
     return (
@@ -19,7 +22,10 @@ class App extends React.Component {
         <Header/>
         <Switch>
           <Route exact path='/' render={()=><Home/>} />
-          <Route path='/articlelist' render={()=><ArticleList articleList={this.props.masterArticleList}/>} />
+          <Route path='/articlelist' render={(props)=><ArticleList
+            articleList={props.masterArticleList}
+            currentRouterPath={props.location.pathname}
+            />} />
           <Route path='/admin' render={(props)=><Admin currentRouterPath={props.location.pathname} />} />
           <Route path='/newarticle' render={()=><NewArticleForm />} />
           <Route component={Error404}/>
@@ -30,12 +36,14 @@ class App extends React.Component {
 }
 
 App.propTypes = {
-  masterArticleList: PropTypes.object
+  masterArticleList: PropTypes.object,
+  currentRouterPath: PropTypes.string
 }
 
 const mapStateToProps = state => {
   return {
-    masterArticleList: state.masterArticleList
+    masterArticleList: state.masterArticleList,
+    currentRouterPath: state.currentRouterPath
   }
 }
 

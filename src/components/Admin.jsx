@@ -29,7 +29,7 @@ function Admin(props){
 Admin.propTypes = {
   articleList: PropTypes.object,
   currentRouterPath: PropTypes.string.isRequired,
-  selectedArticle: PropTypes.string
+  selectedArticle: PropTypes.object
 };
 
 const mapStateToProps = state => {
