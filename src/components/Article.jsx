@@ -1,20 +1,41 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 function Article(props) {
 
-  return (
-    <div>
-      <h3>{props.title}</h3>
-      <h4>{props.author}</h4>
-      <h4>{props.date}</h4>
-      <h5>{props.content}</h5>
-      <hr/>
-    </div>
-  );
-}
+  function handleSelectedArticle(articleId){
+    const { dispatch } = props;
+    const action = {
+      type: 'SELECT_ARTICLE',
+      articleId: articleId
+    };
+    dispatch(action);
+  }
 
+  const articleInformation =
+    <div onClick={() => {handleSelectedArticle(props.articleId);}}>
+      <h2>{props.title}</h2>
+      <h3>{props.author} {props.date}</h3>
+      <p>{props.content}</p>
+    </div>;
+
+  if (props.currentRouterPath === '/admin'){
+    return (
+      <div>
+        <h3>NEED TO ADD Edit Article - Delete Review</h3>
+        {articleInformation}
+        </div>
+    );
+  } else {
+    return (
+      <div>
+        {articleInformation}
+      </div>
+    );
+  }
+}
 
 Article.propTypes = {
   title: PropTypes.string.isRequired,
