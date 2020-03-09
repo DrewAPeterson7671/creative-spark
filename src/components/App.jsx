@@ -8,6 +8,8 @@ import Header from './Header';
 import Home from './Home';
 import ArticleList from './ArticleList';
 import Error404 from './Error404';
+import NewArticleForm from './NewArticleForm';
+import Admin from './Admin';
 
 class App extends React.Component {
 
@@ -18,6 +20,8 @@ class App extends React.Component {
         <Switch>
           <Route exact path='/' render={()=><Home/>} />
           <Route path='/articlelist' render={()=><ArticleList articleList={this.props.masterArticleList}/>} />
+          <Route path='/admin' render={(props)=><Admin currentRouterPath={props.location.pathname} />} />
+          <Route path='/newarticle' render={()=><NewArticleForm />} />
           <Route component={Error404}/>
         </Switch>
       </div>
